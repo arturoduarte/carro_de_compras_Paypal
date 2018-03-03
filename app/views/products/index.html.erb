@@ -1,0 +1,43 @@
+<h1 class="text-center bold green-text">Listado de Productos</h1>
+<div class="text-right">
+	
+	
+	
+</div><br>
+<div class="row">
+	<% @products.each do |product| %>	
+	<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+		<div class="card border-success white bottom-space sombra text-center mb-4 ">
+			
+			<header>			
+				<h3 class="grey-text bold text-center card-header"><%= product.name %></h3>
+			</header>
+			
+			<div class="p-3 text-center">  <!-- padding de bootstrap -->
+				<section>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 inline-block no-padding text-center">
+						<%= image_tag(product.photo, :width => 300, :height => 200) if product.photo.present? %>
+					</div>
+					
+					<div class="col-xl-10 col-lg-6 col-md-12 col-sm-12 col-10 inline-block text-left">
+						<br>
+						<h3 class="green-text bold normal"> 
+							Costo: 
+							<span class="grey-text">
+								<%= product.price %> Gs.
+							</span>
+						</h3>	
+					</div>
+
+						<div class="text-center">
+							<%= link_to 'Agregar <i class="oi oi-cart"></i>'.html_safe, product_orders_path(product), class:'btn btn-success', method: :post %>
+						</div>
+						
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<% end %>
+	
+</div>

@@ -1,0 +1,49 @@
+<% if @orders.count > 0 %>
+
+<div class="row">
+	<div class="col-md-5">
+		<div>
+			<%= link_to  "Continuar comprando", root_path, class:'btn btn-warning' %>
+		</div>
+	</div>
+
+	<div class="col-md-4 offset-md-5">
+			<div>
+				<%= link_to  "Eliminar Carro", empty_cart_orders_path, class:'btn btn-info', method: :delete %>
+			</div>
+		</div>
+</div>
+
+
+<table class="table table-hover">
+	<tr>
+		<th>Producto</th>
+		<th>Cantidad</th>
+		<th>Precio</th>
+		<th>Total</th>
+		
+	</tr>
+	
+	<% @orders.each do |order| %>
+	<tr>
+		<td><%= order.product.name %></td>
+		<td><%= order.quantity %></td>
+		<td>$<%= order.product.price %></td>
+		<td>$<%= order.product.price * order.quantity %></td>
+		<td> <%= link_to 'Eliminar', order_path(order), method: :delete %></td>
+		
+		<br>
+		<% end %>
+		<tr>
+			<th></th>
+			<th></th>
+			<th>Total:</th>
+			<th>   <%= @total %> </th>
+		</tr>
+	</tr>
+	
+</table>
+
+<% else %>
+<p>No tienes productos en tu carro de compra.</p>
+<% end %>
