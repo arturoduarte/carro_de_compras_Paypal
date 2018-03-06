@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 	def create
 		@product = Product.find(params[:product_id])
 		
-		orden = Order.find_or_create_by(user: current_user, payed: false, product: @product)
+		orden = Order.find_or_create_by(user: current_user, payed: false, product: @product, price: @product.price)
 		orden.quantity += 1
 		
 		

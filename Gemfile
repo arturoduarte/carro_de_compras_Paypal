@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'faker'
+gem 'paypal-sdk-rest'
+
 
 group :development, :test do
 	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,6 +44,7 @@ group :development, :test do
 	# Adds support for Capybara system testing and selenium driver
 	gem 'capybara', '~> 2.13'
 	gem 'selenium-webdriver'
+	gem 'railroady'
 end
 
 group :development do

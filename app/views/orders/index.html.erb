@@ -28,8 +28,8 @@
 	<tr>
 		<td><%= order.product.name %></td>
 		<td><%= order.quantity %></td>
-		<td>$<%= order.product.price %></td>
-		<td>$<%= order.product.price * order.quantity %></td>
+		<td>$<%= order.price %></td>
+		<td>$<%= order.price * order.quantity %></td>
 		<td> <%= link_to 'Eliminar', order_path(order), method: :delete %></td>
 		
 		<br>
@@ -43,6 +43,9 @@
 	</tr>
 	
 </table>
+
+<%= link_to 'Confirmar compra', pre_pay_billings_path, class: 'btn btn-success float-right'
+%>
 
 <% else %>
 <p>No tienes productos en tu carro de compra.</p>
